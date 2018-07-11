@@ -9,8 +9,8 @@ export const searchTwitterEpic = action$ => action$.pipe(
     ofType(SEARCH_TWITTER),
     switchMap(({ payload }) => ajax.getJSON(TWITTER_SEARCH_URL + payload)
         .pipe(
-            map(response => searchTwitterSuccessAction(response)),
             takeUntil(action$.ofType(SEARCH_TWITTER_CANCELLED)),
+            map(response => searchTwitterSuccessAction(response)),
             catchError(error => searchTwitterErrorAction(error))
         )
     )
