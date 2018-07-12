@@ -5,8 +5,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import initStore from './store';
+import { ajax } from 'rxjs/ajax';
 
-const store = initStore();
+const store = initStore({ 
+    ajax
+});
 
 const render = () => {
     ReactDOM.render(

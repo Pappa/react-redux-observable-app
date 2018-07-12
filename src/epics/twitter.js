@@ -4,9 +4,9 @@ import { SEARCH_TWITTER, searchTwitterSuccessAction, SEARCH_TWITTER_CANCELLED, s
 
 const TWITTER_SEARCH_URL = 'http://localhost:5000/tweets/';
 
-export const searchTwitterEpic = (action$, store, deps) => action$.pipe(
+export const searchTwitterEpic = (action$, store, { ajax }) => action$.pipe(
     ofType(SEARCH_TWITTER),
-    switchMap(({ payload }) => deps.ajax.getJSON(TWITTER_SEARCH_URL + payload)
+    switchMap(({ payload }) => ajax.getJSON(TWITTER_SEARCH_URL + payload)
         .pipe(
             takeUntil(action$.ofType(SEARCH_TWITTER_CANCELLED)),
             map(response => searchTwitterSuccessAction(response)),
