@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Tweet from 'react-tweet';
 
-let Results = ({ twitter, dispatch }) => {
+const Results = ({ twitter, dispatch }) => {
     return (
         <div>
             {twitter.tweets.map(tweet => (
@@ -18,8 +18,6 @@ const mapStateToProps = state => {
   }
 }
 
-Results = connect(
+export default connect(
     mapStateToProps
 )(Results);
-
-export default Results;

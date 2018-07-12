@@ -11,17 +11,12 @@ const store = initStore({
     ajax
 });
 
-const render = () => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <App />
-        </Provider>, 
-        document.getElementById('root')
-    );
-}
-
-store.subscribe(render);
-render();
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    document.getElementById('root')
+);
 
 registerServiceWorker();
 
