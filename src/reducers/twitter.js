@@ -4,7 +4,6 @@ const initialState = {
 };
 
 export const twitter = (state = initialState, action) => {
-    console.log('reducer', action);
     switch (action.type) {
         case 'SEARCH_TWITTER_SUCCESS':
             return {

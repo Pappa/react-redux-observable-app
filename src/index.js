@@ -23,5 +23,5 @@ render();
 registerServiceWorker();
 
 store.subscribe(() => {
-    console.log(store.getState());
+    console.log('store changed', store.getState());
 });
