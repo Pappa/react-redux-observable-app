@@ -2,21 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Tweet from 'react-tweet';
 
-const Results = ({ twitter, dispatch }) => {
+const Results = ({ tweets }) => {
     return (
         <div>
-            {twitter.tweets.map(tweet => (
+            {tweets.map(tweet => (
                 <Tweet data={tweet} key={tweet.id} />
             ))}
         </div>
     )
 };
 
-const mapStateToProps = state => {
-  return {
-    twitter: state.twitter
-  }
-}
+const mapStateToProps = state => ({
+  tweets: state.twitter.tweets
+});
 
 export default connect(
     mapStateToProps
